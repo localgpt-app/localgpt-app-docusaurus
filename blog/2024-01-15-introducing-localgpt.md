@@ -7,7 +7,7 @@ tags: [release, announcement]
 
 # Introducing LocalGPT
 
-We're excited to announce **LocalGPT** - a local-only AI assistant written in Rust with persistent memory and autonomous capabilities.
+We're excited to announce **LocalGPT** - a local device focused AI assistant with persistent memory and continuous operation capabilities (or reshaped OpenClaw in Rust).
 
 <!-- truncate -->
 
@@ -22,7 +22,7 @@ In a world of cloud-based AI services, we wanted something different:
 
 ## Key Features
 
-### Local-Only Operation
+### Local Device Focused
 
 Every piece of data - your conversations, memory, and configurations - stays on your local machine. No cloud sync, no telemetry, no data leaving your system.
 

@@ -5,11 +5,11 @@ slug: /intro
 
 # Introduction
 
-LocalGPT is a **local-only AI assistant** written in Rust with persistent markdown-based memory and optional autonomous operation. It provides a command-line interface for interacting with various LLM providers while keeping all your data on your local machine.
+LocalGPT is a **local device focused AI assistant with persistent memory and continuous operation capabilities** (or reshaped OpenClaw in Rust). It provides a command-line interface for interacting with various LLM providers while keeping all your data on your local machine.
 
 ## Key Features
 
-- **Local-Only Operation** - All data stays on your machine. No cloud storage, no telemetry.
+- **Local Device Focused** - All data stays on your machine. No cloud storage, no telemetry.
 - **Persistent Memory** - Markdown-based knowledge store with SQLite FTS5 full-text search
 - **Multi-Provider Support** - Works with Claude CLI, OpenAI, Anthropic API, and local Ollama models
 - **Skills System** - Extensible skills for specialized tasks (commits, PRs, code review)

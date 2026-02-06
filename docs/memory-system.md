@@ -171,7 +171,7 @@ All memory data stays local:
 - No cloud sync
 - No telemetry
 - Files are plain markdown (human-readable)
-- SQLite database is local only
+- SQLite database is stored locally on your device
 - You can delete any file at any time
 
 ## Tips

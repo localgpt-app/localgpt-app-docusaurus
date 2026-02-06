@@ -4,7 +4,7 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'LocalGPT',
-  tagline: 'A local-only AI assistant with persistent memory',
+  tagline: 'A local device focused AI assistant with persistent memory and continuous operation capabilities (or reshaped OpenClaw in Rust)',
   favicon: 'img/favicon.ico',
 
   url: 'https://localgpt.app',
@@ -27,11 +27,11 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/localgpt-app/localgpt-app/tree/main/localgpt-app-docusaurus/',
+          editUrl: 'https://github.com/localgpt-app/localgpt/tree/main/localgpt-app-docusaurus/',
         },
         blog: {
           showReadingTime: true,
-          editUrl: 'https://github.com/localgpt-app/localgpt-app/tree/main/localgpt-app-docusaurus/',
+          editUrl: 'https://github.com/localgpt-app/localgpt/tree/main/localgpt-app-docusaurus/',
         },
         theme: {
           customCss: './src/css/custom.css',
@@ -41,13 +41,14 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: 'img/localgpt-social-card.png',
+    colorMode: {
+      defaultMode: 'dark',
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
+    },
+    image: 'logo/localgpt-logo-dark.svg',
     navbar: {
       title: 'LocalGPT',
-      logo: {
-        alt: 'LocalGPT Logo',
-        src: 'img/logo.svg',
-      },
       items: [
         {
           type: 'docSidebar',
@@ -57,7 +58,7 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/localgpt-app/localgpt-app',
+          href: 'https://github.com/localgpt-app/localgpt',
           label: 'GitHub',
           position: 'right',
         },
@@ -109,15 +110,15 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/localgpt-app/localgpt-app',
+              href: 'https://github.com/localgpt-app/localgpt',
             },
           ],
         },
       ],
-      copyright: `Copyright ${new Date().getFullYear()} LocalGPT. Built with Docusaurus.`,
+      copyright: `Licensed under Apache 2.0`,
     },
     prism: {
-      theme: prismThemes.github,
+      theme: prismThemes.dracula,
       darkTheme: prismThemes.dracula,
       additionalLanguages: ['bash', 'toml', 'rust', 'json'],
     },

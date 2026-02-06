@@ -4,14 +4,12 @@ import styles from './styles.module.css';
 
 type FeatureItem = {
   title: string;
-  Svg: React.ComponentType<React.ComponentProps<'svg'>>;
   description: JSX.Element;
 };
 
 const FeatureList: FeatureItem[] = [
   {
-    title: 'Local-Only Operation',
-    Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
+    title: 'Local Device Focused',
     description: (
       <>
         All your data stays on your machine. No cloud dependencies, no data
@@ -22,7 +20,6 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Persistent Memory System',
-    Svg: require('@site/static/img/undraw_docusaurus_tree.svg').default,
     description: (
       <>
         Markdown-based memory with SQLite FTS5 full-text search. Your AI
@@ -33,7 +30,6 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: 'Multi-Provider Support',
-    Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
         Connect to OpenAI, Anthropic Claude, or local Ollama models. Switch
@@ -44,12 +40,9 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({title, Svg, description}: FeatureItem) {
+function Feature({title, description}: FeatureItem) {
   return (
     <div className={clsx('col col--4')}>
-      <div className="text--center">
-        <Svg className={styles.featureSvg} role="img" />
-      </div>
       <div className="text--center padding-horiz--md">
         <Heading as="h3">{title}</Heading>
         <p>{description}</p>

@@ -1,21 +1,50 @@
+import {useState} from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures';
-import Heading from '@theme/Heading';
 
 import styles from './index.module.css';
+
+function InstallCommand() {
+  const [copied, setCopied] = useState(false);
+  const command = 'cargo install localgpt';
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(command);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <div className={styles.installWrap}>
+      <div className={styles.installCmd} onClick={handleCopy}>
+        <code>$ {command}</code>
+        <button className={styles.copyBtn} title="Copy to clipboard">
+          {copied ? 'Copied!' : 'Copy'}
+        </button>
+      </div>
+    </div>
+  );
+}
 
 function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+    <header className={clsx('hero hero--dark', styles.heroBanner)}>
       <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
-        </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <img
+          src="/logo/localgpt.gif"
+          alt={siteConfig.title}
+          className={styles.heroLogo}
+        />
+        <InstallCommand />
+        <p className="hero__subtitle">
+          A local device focused AI assistant with persistent memory and continuous operation capabilities
+          <br />
+          (Reshaped OpenClaw in Rust)
+        </p>
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
@@ -33,7 +62,7 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title="Home"
-      description="LocalGPT - A local-only AI assistant with persistent memory. Written in Rust, supporting OpenAI, Anthropic, and Ollama.">
+      description="LocalGPT - A local device focused AI assistant with persistent memory and continuous operation capabilities (or reshaped OpenClaw in Rust).">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
