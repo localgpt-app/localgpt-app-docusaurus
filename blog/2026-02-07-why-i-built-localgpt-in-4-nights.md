@@ -1,7 +1,7 @@
 ---
 slug: why-i-built-localgpt-in-4-nights
 title: Why I Built LocalGPT in 4 Nights
-authors: [localgpt]
+authors: [yi]
 tags: [rust, ai, open-source, development, openclaw, localgpt]
 ---
 
