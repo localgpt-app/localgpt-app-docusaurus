@@ -41,9 +41,9 @@ function HomepageHeader() {
         />
         <InstallCommand />
         <p className="hero__subtitle">
-          A local device focused AI assistant with persistent memory and continuous operation capabilities
+          A local AI assistant with persistent markdown memory, autonomous heartbeat tasks, and semantic search.
           <br />
-          (Reshaped OpenClaw in Rust)
+          Single binary, no runtime dependencies.
         </p>
         <div className={styles.buttons}>
           <Link
@@ -62,7 +62,7 @@ export default function Home(): JSX.Element {
   return (
     <Layout
       title="Home"
-      description="LocalGPT - A local device focused AI assistant with persistent memory and continuous operation capabilities (or reshaped OpenClaw in Rust).">
+      description="LocalGPT - A local AI assistant with persistent markdown memory, autonomous heartbeat tasks, and semantic search. Single binary, no runtime dependencies.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
