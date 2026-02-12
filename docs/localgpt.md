@@ -79,7 +79,7 @@ You can combine any of these. The file is yours. Write it however makes sense fo
 Because `LocalGPT.md` directly shapes AI behavior, it is protected by a cryptographic integrity system:
 
 1. **You write or edit `LocalGPT.md`** in your editor of choice — it's a plain Markdown file
-2. **You sign it** by running `localgpt directives sign`, which creates a cryptographic fingerprint using a key stored on your device
+2. **You sign it** by running `localgpt md sign`, which creates a cryptographic fingerprint using a key stored on your device
 3. **At every session start**, LocalGPT verifies the signature before injecting the file's content. If the file was modified without re-signing — by the AI, by a script, by anything other than you deliberately editing and re-signing — the content is silently excluded and a warning is shown
 
 This means the AI **cannot modify its own instructions**. Your standing instructions remain yours.
@@ -87,7 +87,7 @@ This means the AI **cannot modify its own instructions**. Your standing instruct
 The signing step is simple and takes less than a second:
 
 ```
-$ localgpt directives sign
+$ localgpt md sign
 ✓ Signed LocalGPT.md (sha256: a1b2c3...)
 ```
 
@@ -111,9 +111,9 @@ Think of `LocalGPT.md` as a strong cultural norm — followed naturally and cons
 | **Injected** | End of every conversation turn |
 | **Editable by AI** | No — write-protected and signature-verified |
 | **Required** | No — LocalGPT works without it, using built-in defaults |
-| **Sign after editing** | `localgpt directives sign` |
-| **Check status** | `localgpt directives status` |
-| **View audit log** | `localgpt directives audit` |
+| **Sign after editing** | `localgpt md sign` |
+| **Check status** | `localgpt md status` |
+| **View audit log** | `localgpt md audit` |
 
 ## Getting started
 
@@ -126,7 +126,7 @@ $ nano ~/.local/share/localgpt/workspace/LocalGPT.md
 Write your instructions, then sign:
 
 ```
-$ localgpt directives sign
+$ localgpt md sign
 ✓ Signed LocalGPT.md
 ```
 
