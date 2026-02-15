@@ -8,7 +8,13 @@ LocalGPT is configured via a TOML file at `~/.localgpt/config.toml`.
 
 ## Quick Start
 
-Create the config file:
+Initialize a default config file:
+
+```bash
+localgpt config init
+```
+
+Or create one manually:
 
 ```bash
 mkdir -p ~/.localgpt
@@ -32,9 +38,11 @@ EOF
 # Default model to use for chat
 # Prefix determines provider:
 #   claude-cli/* → Claude CLI (uses installed claude command)
-#   gpt-* / o1-* → OpenAI
-#   claude-* → Anthropic API
-#   else → Ollama
+#   anthropic/*  → Anthropic API
+#   openai/*     → OpenAI
+#   glm/* or glm → GLM (Z.AI)
+#   ollama/*     → Ollama
+#   Aliases: opus, sonnet, gpt, gpt-mini
 default_model = "claude-cli/opus"
 
 # Context window size (in tokens)
@@ -69,6 +77,33 @@ endpoint = "http://localhost:11434"
 
 # Default model for Ollama
 model = "llama3"
+
+[providers.glm]
+# GLM (Z.AI) API key
+api_key = "${GLM_API_KEY}"
+
+#──────────────────────────────────────────────────────────────────────────────
+# Tool Settings
+#──────────────────────────────────────────────────────────────────────────────
+
+[tools]
+# Timeout for bash commands (milliseconds)
+bash_timeout_ms = 10000
+
+# Maximum size for web_fetch responses
+web_fetch_max_bytes = 1048576    # 1MB
+
+# Tools that require user approval before execution
+require_approval = ["bash", "write_file"]
+
+# Maximum characters in tool output sent to the model
+tool_output_max_chars = 8000
+
+# Warn when tool output contains potential injection patterns
+log_injection_warnings = true
+
+# Wrap tool output in XML content delimiters
+use_content_delimiters = true
 
 #──────────────────────────────────────────────────────────────────────────────
 # Heartbeat Settings
@@ -192,6 +227,17 @@ level = "info"
 
 # Log file path
 file = "~/.localgpt/logs/agent.log"
+
+#──────────────────────────────────────────────────────────────────────────────
+# Telegram Bot
+#──────────────────────────────────────────────────────────────────────────────
+
+[telegram]
+# Enable Telegram bot (runs inside daemon)
+enabled = false
+
+# Bot API token from @BotFather
+api_token = "${TELEGRAM_BOT_TOKEN}"
 ```
 
 ## Environment Variables
@@ -267,15 +313,61 @@ endpoint = "http://localhost:11434"
 
 For fully local operation, only configure Ollama (no API keys needed). Tool calling is supported for Ollama models that have tool calling capability.
 
-## Validate Configuration
+### GLM (Z.AI)
 
-Check your configuration:
+```toml
+[agent]
+default_model = "glm/glm-4.7"  # or alias: glm
 
-```bash
-localgpt config show
+[providers.glm]
+api_key = "${GLM_API_KEY}"
 ```
 
-This displays the loaded configuration with sensitive values masked.
+### Local OpenAI-Compatible Server (LM Studio, llamafile, etc.)
+
+If you run a local server that speaks the OpenAI API (e.g., LM Studio, llamafile, vLLM), point LocalGPT at it with an `openai/*` model ID:
+
+1. Start your local server and note the port and model name.
+2. Edit `~/.localgpt/config.toml`:
+
+```toml
+[agent]
+default_model = "openai/<your-model-name>"
+
+[providers.openai]
+# Many local servers accept a dummy key
+api_key = "not-needed"
+base_url = "http://127.0.0.1:8080/v1"   # or :1234 for LM Studio
+```
+
+3. Run `localgpt chat` and requests will go to your local server.
+
+### Telegram Bot
+
+Access LocalGPT from Telegram with full chat, tool use, and memory support:
+
+1. Create a bot via [@BotFather](https://t.me/BotFather) and get the API token.
+2. Configure:
+
+```toml
+[telegram]
+enabled = true
+api_token = "${TELEGRAM_BOT_TOKEN}"
+```
+
+3. Start the daemon: `localgpt daemon start`
+4. Message your bot — enter the 6-digit pairing code shown in the daemon logs.
+
+## Managing Configuration
+
+```bash
+localgpt config init              # Create default config file
+localgpt config show              # Display loaded config (sensitive values masked)
+localgpt config show --format json  # JSON output
+localgpt config get agent.default_model   # Get a specific value
+localgpt config set agent.default_model "claude-cli/opus"  # Set a value
+localgpt config path              # Show config file location
+```
 
 ## Workspace Path Customization
 

@@ -206,7 +206,7 @@ Fetch content from a URL.
 
 **Notes:**
 - HTTP GET request only
-- Response truncated to 10KB
+- Response capped at 1MB by default (configurable via `tools.web_fetch_max_bytes`)
 - Respects timeouts
 - Returns error for non-2xx responses
 
@@ -220,6 +220,7 @@ All LLM providers in LocalGPT support tool calling:
 | Anthropic API | Native support |
 | OpenAI | Native support |
 | Ollama | Supported (v0.1.2+) — requires Ollama models with tool calling capability |
+| GLM (Z.AI) | Native support |
 
 ## Tool Execution Flow
 

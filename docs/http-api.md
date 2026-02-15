@@ -42,17 +42,17 @@ GET /api/status
 **Response:**
 ```json
 {
-  "version": "0.1.0",
+  "version": "0.1.3",
   "uptime_seconds": 3600,
-  "model": "gpt-4",
+  "model": "claude-cli/opus",
   "memory": {
     "files_indexed": 42,
     "chunks": 156
   },
   "heartbeat": {
     "enabled": true,
-    "last_run": "2024-01-15T10:30:00Z",
-    "next_run": "2024-01-15T11:00:00Z"
+    "last_run": "2026-02-14T10:30:00Z",
+    "next_run": "2026-02-14T11:00:00Z"
   }
 }
 ```
@@ -70,7 +70,7 @@ Content-Type: application/json
 ```json
 {
   "message": "What is the capital of France?",
-  "model": "gpt-4",
+  "model": "claude-cli/opus",
   "include_memory": true
 }
 ```
@@ -86,7 +86,7 @@ Content-Type: application/json
 ```json
 {
   "response": "The capital of France is Paris.",
-  "model": "gpt-4",
+  "model": "claude-cli/opus",
   "tokens": {
     "prompt": 45,
     "completion": 12,
@@ -100,7 +100,7 @@ Content-Type: application/json
 ```json
 {
   "response": "I found 3 files in your project...",
-  "model": "gpt-4",
+  "model": "claude-cli/opus",
   "tokens": {
     "prompt": 120,
     "completion": 45,
@@ -140,7 +140,7 @@ GET /api/memory/search?q=rust%20async&limit=5
   "query": "rust async",
   "results": [
     {
-      "file": "memory/2024-01-15.md",
+      "file": "memory/2026-02-14.md",
       "content": "...discussed async/await patterns in Rust...",
       "score": 0.95,
       "line_start": 45,
@@ -187,7 +187,7 @@ GET /api/memory/stats
   },
   "index": {
     "chunks": 156,
-    "last_indexed": "2024-01-15T10:30:00Z",
+    "last_indexed": "2026-02-14T10:30:00Z",
     "database_size_bytes": 250880
   }
 }

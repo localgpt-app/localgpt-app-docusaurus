@@ -13,7 +13,8 @@ LocalGPT is a **local AI assistant with persistent memory, semantic search, and 
 - **Hybrid Memory Search** - Markdown-based knowledge store with SQLite FTS5 full-text search (with AND matching and rank-based scoring) and local vector embeddings (fastembed) for semantic search
 - **Desktop App** - Optional native desktop GUI built with egui — chat, sessions, memory browser, and status dashboard. Disable with `--no-default-features` for headless/Docker deployments.
 - **Embedded Web UI** - Browser-based chat interface served directly from the binary
-- **Multi-Provider Support** - Works with Claude CLI, Anthropic API, OpenAI, and local Ollama models — all with full tool calling support
+- **Multi-Provider Support** - Works with Claude CLI, Anthropic API, OpenAI, Ollama, and GLM (Z.AI) — all with full tool calling support
+- **Telegram Bot** - Access LocalGPT from Telegram with full chat, tool use, and memory support — secured with one-time pairing auth
 - **Autonomous Heartbeat** - Daemon mode with scheduled background tasks that run automatically
 - **Skills System** - Extensible skills for specialized tasks
 - **Shell Sandbox** - Kernel-level isolation (Landlock + seccomp + Seatbelt) on every shell command. Zero configuration, enabled by default, graceful degradation. [Not a guarantee](/docs/sandbox#limitations) — defense in depth.
@@ -55,6 +56,7 @@ LocalGPT automatically detects the provider based on model name prefix:
 | `claude-cli/*` | Claude CLI | claude-cli/opus, claude-cli/sonnet |
 | `anthropic/*` | Anthropic API | anthropic/claude-opus-4-5, anthropic/claude-sonnet-4-5 |
 | `openai/*` | OpenAI | openai/gpt-4o, openai/gpt-4o-mini |
+| `glm/*` or `glm` | GLM (Z.AI) | glm/glm-4.7, glm |
 | Aliases | Any | opus, sonnet, gpt, gpt-mini |
 | Other | Ollama (with tool calling) | llama3, mistral, codellama |
 

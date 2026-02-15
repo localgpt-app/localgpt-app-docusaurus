@@ -58,6 +58,12 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
+          href: 'https://x.com/localgpt',
+          position: 'right',
+          className: 'header-x-link',
+          'aria-label': 'X (Twitter)',
+        },
+        {
           href: 'https://github.com/localgpt-app/localgpt',
           position: 'right',
           className: 'header-github-link',
@@ -108,6 +114,10 @@ const config: Config = {
             {
               label: 'Blog',
               to: '/blog',
+            },
+            {
+              label: 'X (Twitter)',
+              href: 'https://x.com/localgpt',
             },
             {
               label: 'GitHub',

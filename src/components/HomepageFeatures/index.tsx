@@ -30,13 +30,13 @@ const FeatureList: FeatureItem[] = [
     ),
   },
   {
-    title: 'Desktop, Web & CLI',
+    title: 'Desktop, Web, CLI & Telegram',
     description: (
       <>
-        Three ways to interact: an optional native desktop GUI (egui), an
-        embedded web UI served from the binary, and a full-featured CLI. Build
-        with <code>--no-default-features</code> for headless Docker/server
-        deployments.
+        Four ways to interact: a full-featured CLI, an optional native desktop
+        GUI (egui), an embedded web UI, and a Telegram bot with one-time pairing
+        auth. Build with <code>--no-default-features</code> for headless
+        Docker/server deployments.
       </>
     ),
   },
@@ -54,8 +54,8 @@ const FeatureList: FeatureItem[] = [
     title: 'Multi-Provider LLMs',
     description: (
       <>
-        Works with Claude CLI, Anthropic API, OpenAI, and local Ollama
-        models — all with full tool calling support. Switch providers
+        Works with Claude CLI, Anthropic API, OpenAI, Ollama, and GLM
+        (Z.AI) — all with full tool calling support. Switch providers
         seamlessly while keeping your memory and conversation history intact.
       </>
     ),

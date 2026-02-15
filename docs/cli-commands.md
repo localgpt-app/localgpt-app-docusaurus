@@ -17,8 +17,9 @@ Commands:
   daemon    Manage the background daemon
   memory    Memory management operations
   config    Configuration management
-  directives  Manage LocalGPT.md standing instructions
+  md        Manage LocalGPT.md standing instructions
   sandbox   Shell sandbox diagnostics
+  paths     Show resolved directory paths
   desktop   Launch desktop GUI
   help      Print help information
 ```
@@ -30,6 +31,7 @@ localgpt [OPTIONS] <COMMAND>
 
 Options:
   -c, --config <PATH>  Path to config file (default: ~/.localgpt/config.toml)
+  -a, --agent <ID>     Agent ID (default: "main")
   -m, --model <MODEL>  Override the default model
   -v, --verbose        Enable verbose logging
   -h, --help           Print help
@@ -44,9 +46,10 @@ Options:
 | [`ask`](/docs/cli-ask) | Single-turn question answering |
 | [`daemon`](/docs/cli-daemon) | Start/stop/status of the background daemon |
 | [`memory`](/docs/cli-memory) | Search, reindex, and manage memory |
-| `config` | Show and validate configuration |
-| [`directives`](/docs/localgpt#quick-reference) | Sign, verify, and audit LocalGPT.md |
+| `config` | Init, show, get, and set configuration values |
+| [`md`](/docs/localgpt#quick-reference) | Sign, verify, and audit LocalGPT.md |
 | [`sandbox`](/docs/sandbox#cli-commands) | Inspect sandbox capabilities and run tests |
+| `paths` | Show resolved XDG directory paths |
 | `desktop` | Launch the native desktop GUI (egui) |
 
 ## Examples
@@ -59,7 +62,7 @@ localgpt chat
 localgpt ask "What is the capital of France?"
 
 # Use a specific model
-localgpt -m claude-3-sonnet chat
+localgpt -m anthropic/claude-sonnet-4-5 chat
 
 # Start the daemon
 localgpt daemon start
@@ -70,14 +73,23 @@ localgpt memory search "project ideas"
 # Show memory statistics
 localgpt memory stats
 
+# Configuration management
+localgpt config init              # Create default config
+localgpt config show              # Display loaded config
+localgpt config get agent.default_model   # Get a specific value
+localgpt config set agent.default_model "claude-cli/opus"
+
 # Check sandbox capabilities
 localgpt sandbox status
 
 # Sign LocalGPT.md after editing
-localgpt directives sign
+localgpt md sign
 
-# View directives audit log
-localgpt directives audit
+# View security audit log
+localgpt md audit
+
+# Show resolved directory paths
+localgpt paths
 ```
 
 ## Built-in Chat Commands
@@ -86,13 +98,21 @@ When in interactive chat mode, these commands are available:
 
 | Command | Description |
 |---------|-------------|
-| `/help` | Show help for chat commands |
-| `/quit` or `/exit` | Exit the chat session |
+| `/help`, `/h`, `/?` | Show help for chat commands |
+| `/quit`, `/exit`, `/q` | Exit the chat session |
 | `/new` | Start a fresh session |
+| `/sessions` | List saved sessions |
+| `/resume <id>` | Resume a saved session |
+| `/search <query>` | Search across sessions |
 | `/memory <query>` | Search memory for a term |
 | `/save` | Force save current context to memory |
 | `/compact` | Manually trigger session compaction |
+| `/model [name]` | Show or switch the current model |
+| `/models` | List available model prefixes |
+| `/context` | Show context window usage |
 | `/status` | Show session status (tokens, turns) |
+| `/export [file]` | Export session as markdown |
+| `/attach <file>` | Attach a file to the conversation |
 | `/clear` | Clear the terminal screen |
 | `/skills` | List available skills |
 

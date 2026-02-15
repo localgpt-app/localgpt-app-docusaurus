@@ -28,6 +28,17 @@ export OPENAI_API_KEY="sk-..."
 
 # For Anthropic API
 export ANTHROPIC_API_KEY="sk-ant-..."
+
+# For GLM (Z.AI)
+export GLM_API_KEY="..."
+```
+
+### Option C: Local Models (Ollama)
+
+```bash
+# Install Ollama from https://ollama.ai, then:
+ollama pull llama3
+localgpt config set agent.default_model "llama3"
 ```
 
 ## 2. Start an Interactive Chat
@@ -130,7 +141,7 @@ Done! I've created `read_csv.py` with the CSV reading code.
 
 > /memory csv
 Found 1 result for "csv":
-- [2024-01-15] Discussed CSV file reading in Python
+- [2026-02-14] Discussed CSV file reading in Python
 
 > /quit
 Goodbye!
