@@ -40,7 +40,7 @@ function HomepageHeader() {
           className={styles.heroIcon}
         />
         <img
-          src="/logo/localgpt.gif"
+          src="/logo/localgpt-gear.gif"
           alt={siteConfig.title}
           className={styles.heroLogo}
         />
