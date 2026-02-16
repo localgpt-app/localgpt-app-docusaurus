@@ -42,9 +42,9 @@ Then configure the embedding provider in your `config.toml`:
 embedding_provider = "gguf"
 ```
 
-### LocalGPT Gen (3D Scene Generation)
+### LocalGPT Gen (World Generation)
 
-To enable the built-in 3D scene generation mode (adds Bevy as a dependency):
+To enable the built-in world generation mode (adds Bevy as a dependency):
 
 ```bash
 cargo install localgpt --features gen

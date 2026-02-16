@@ -8,7 +8,7 @@ sidebar_position: 14
 LocalGPT Gen is an early-stage experimental feature. Scene output quality depends heavily on the LLM's spatial reasoning. Consider it a proof of concept.
 :::
 
-**LocalGPT Gen** is a built-in 3D scene generation mode. You type natural language, and the AI composes 3D scenes from geometric primitives — spheres, cubes, cylinders, tori — with full material control, lighting, and camera positioning. All inside the same single Rust binary, powered by [Bevy](https://bevyengine.org/).
+**LocalGPT Gen** is a built-in world generation mode. You type natural language, and the AI builds explorable worlds — geometry, materials, lighting, and camera. All inside the same single Rust binary, powered by [Bevy](https://bevyengine.org/).
 
 ## Demo Videos
 
@@ -34,7 +34,7 @@ cargo install localgpt --features gen
 localgpt gen "create a heart outline with spheres and cubes"
 ```
 
-The agent receives your prompt and iteratively builds a 3D scene — spawning shapes, adjusting materials, positioning the camera, and taking screenshots to course-correct.
+The agent receives your prompt and iteratively builds a world — spawning shapes, adjusting materials, positioning the camera, and taking screenshots to course-correct.
 
 ## Gen Tools
 
@@ -73,9 +73,9 @@ Bevy requires ownership of the main thread (macOS windowing/GPU requirement), so
 └─────────────────────┘                        └─────────────────────┘
 ```
 
-## Limitations
+## Current Limitations
 
-- Scene quality depends on the LLM's spatial reasoning ability
+- Visual output depends on the LLM's spatial reasoning ability
 - Only geometric primitives are supported (no imported 3D models yet)
 - Requires a GPU-capable display for rendering
 - The `gen` feature adds Bevy as a dependency, significantly increasing compile time

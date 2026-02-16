@@ -14,7 +14,7 @@ localgpt <COMMAND>
 Commands:
   chat      Interactive multi-turn conversation
   ask       Single question and response
-  gen       Launch 3D scene generation mode (Bevy renderer)
+  gen       Launch world generation mode (Bevy renderer)
   daemon    Manage the background daemon
   memory    Memory management operations
   search    Test web search provider
@@ -46,7 +46,7 @@ Options:
 |---------|-------------|
 | [`chat`](/docs/cli-chat) | Interactive multi-turn conversation with session support |
 | [`ask`](/docs/cli-ask) | Single-turn question answering |
-| [`gen`](/docs/gen) | Launch 3D scene generation mode (Bevy renderer) |
+| [`gen`](/docs/gen) | Launch world generation mode (Bevy renderer) |
 | [`daemon`](/docs/cli-daemon) | Start/stop/status of the background daemon |
 | [`memory`](/docs/cli-memory) | Search, reindex, and manage memory |
 | `search` | Test web search provider configuration |
@@ -92,7 +92,7 @@ localgpt md sign
 # View security audit log
 localgpt md audit
 
-# Launch 3D scene generation
+# Launch world generation
 localgpt gen "create a solar system with planets"
 
 # Test web search provider

@@ -29,17 +29,44 @@ function InstallCommand() {
   );
 }
 
-function GenShowcase() {
+function HomepageHeader() {
+  const {siteConfig} = useDocusaurusContext();
   return (
-    <section className={styles.genShowcase}>
-      <div className="container">
-        <div className={styles.genCard}>
-          <div className={styles.genContent}>
-            <h2 className={styles.genTitle}>LocalGPT Gen — AI-Driven 3D Scene Generation</h2>
+    <header className={clsx('hero hero--dark', styles.heroBanner)}>
+      <div className={clsx('container', styles.heroContainer)}>
+        <div className={styles.heroLeft}>
+          <img
+            src="/logo/localgpt-icon.png"
+            alt={siteConfig.title}
+            className={styles.heroIcon}
+          />
+          <img
+            src="/logo/localgpt-gear.gif"
+            alt={siteConfig.title}
+            className={styles.heroLogo}
+          />
+          <InstallCommand />
+          <p className="hero__subtitle">
+            A local AI assistant with persistent memory, autonomous tasks, semantic search, and explorable world generation.
+            <br />
+            Single binary, no runtime dependencies.
+          </p>
+          <div className={styles.buttons}>
+            <Link
+              className="button button--secondary button--lg"
+              to="/docs/intro">
+              Get Started
+            </Link>
+          </div>
+        </div>
+        <div className={styles.heroRight}>
+          <div className={styles.genCard}>
+            <h2 className={styles.genTitle}>LocalGPT Gen</h2>
+            <p className={styles.genSubtitle}>AI-Driven World Generation</p>
             <p className={styles.genDescription}>
-              Type natural language and watch the AI compose 3D scenes from geometric
-              primitives — spheres, cubes, cylinders, tori — with full material control,
-              lighting, and camera positioning. Powered by{' '}
+              Describe a world in natural language and watch it come to life — geometry,
+              materials, lighting, and camera.
+              Powered by{' '}
               <a href="https://bevyengine.org/" target="_blank" rel="noopener noreferrer">Bevy</a>,
               built into the same single binary.
             </p>
@@ -49,39 +76,6 @@ function GenShowcase() {
               Explore Gen Docs
             </Link>
           </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function HomepageHeader() {
-  const {siteConfig} = useDocusaurusContext();
-  return (
-    <header className={clsx('hero hero--dark', styles.heroBanner)}>
-      <div className="container">
-        <img
-          src="/logo/localgpt-icon.png"
-          alt={siteConfig.title}
-          className={styles.heroIcon}
-        />
-        <img
-          src="/logo/localgpt-gear.gif"
-          alt={siteConfig.title}
-          className={styles.heroLogo}
-        />
-        <InstallCommand />
-        <p className="hero__subtitle">
-          A local AI assistant with persistent memory, autonomous tasks, semantic search, and explorable world generation.
-          <br />
-          Single binary, no runtime dependencies.
-        </p>
-        <div className={styles.buttons}>
-          <Link
-            className="button button--secondary button--lg"
-            to="/docs/intro">
-            Get Started
-          </Link>
         </div>
       </div>
     </header>
@@ -96,7 +90,6 @@ export default function Home(): JSX.Element {
       description="LocalGPT - A local AI assistant with persistent memory, autonomous tasks, semantic search, and explorable world generation. Single binary, no runtime dependencies.">
       <HomepageHeader />
       <main>
-        <GenShowcase />
         <HomepageFeatures />
       </main>
     </Layout>
