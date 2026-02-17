@@ -10,7 +10,7 @@ LocalGPT features a persistent, markdown-based memory system that allows the AI 
 
 The memory system consists of:
 
-1. **Markdown Files** - Human-readable storage in `~/.localgpt/workspace/`
+1. **Markdown Files** - Human-readable storage in `~/.local/share/localgpt/workspace/`
 2. **SQLite FTS5 Index** - Fast full-text keyword search using BM25 scoring
 3. **Vector Embeddings** - Local semantic search via fastembed (or OpenAI/GGUF embeddings) using sqlite-vec
 4. **Hybrid Search** - Combines FTS5 and vector search results (30% keyword, 70% semantic) for best recall
@@ -19,14 +19,16 @@ The memory system consists of:
 ## File Structure
 
 ```
-~/.localgpt/workspace/
+~/.local/share/localgpt/workspace/
 ├── MEMORY.md          # Curated long-term knowledge
 ├── HEARTBEAT.md       # Pending autonomous tasks
-├── memory.sqlite      # Search index database
 └── memory/
     ├── 2024-01-15.md  # Today's conversation log
     ├── 2024-01-14.md  # Yesterday's log
     └── ...            # Historical logs
+
+~/.cache/localgpt/memory/
+└── main.sqlite        # Search index database
 ```
 
 ## MEMORY.md
@@ -128,7 +130,7 @@ Memory settings in `config.toml`:
 ```toml
 [memory]
 # Workspace location
-workspace = "~/.localgpt/workspace"
+workspace = "~/.local/share/localgpt/workspace"
 
 # Chunk size for indexing (in tokens)
 chunk_size = 400
@@ -143,7 +145,7 @@ embedding_provider = "local"
 embedding_model = "BAAI/bge-small-en-v1.5"
 
 # Cache directory for embedding models
-embedding_cache_dir = "~/.localgpt/cache/embeddings"
+embedding_cache_dir = "~/.cache/localgpt/embeddings"
 
 # Additional paths to index (outside workspace)
 # external_paths = ["~/projects/notes"]

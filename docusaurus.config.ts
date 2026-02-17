@@ -51,7 +51,7 @@ const config: Config = {
       title: 'LocalGPT',
       logo: {
         alt: 'LocalGPT',
-        src: 'logo/localgpt-icon.png',
+        src: 'logo/localgpt-icon-app.png',
       },
       items: [
         {
@@ -62,10 +62,16 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://www.youtube.com/@localgpt-gen',
+          href: 'https://www.youtube.com/@localgpt-app',
           position: 'right',
           className: 'header-youtube-link',
           'aria-label': 'YouTube',
+        },
+        {
+          href: 'https://www.youtube.com/@localgpt-gen',
+          position: 'right',
+          className: 'header-youtube-link',
+          'aria-label': 'YouTube Gen Gallery',
         },
         {
           href: 'https://x.com/localgpt',
@@ -85,7 +91,7 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Documentation',
+          title: 'Docs',
           items: [
             {
               label: 'Getting Started',
@@ -99,14 +105,26 @@ const config: Config = {
               label: 'Configuration',
               to: '/docs/configuration',
             },
+            {
+              label: 'HTTP API',
+              to: '/docs/http-api',
+            },
           ],
         },
         {
           title: 'Features',
           items: [
             {
+              label: 'Gen',
+              to: '/docs/gen',
+            },
+            {
               label: 'Memory System',
               to: '/docs/memory-system',
+            },
+            {
+              label: 'Heartbeat',
+              to: '/docs/heartbeat',
             },
             {
               label: 'Shell Sandbox',
@@ -119,23 +137,32 @@ const config: Config = {
           ],
         },
         {
-          title: 'More',
+          title: 'Community',
           items: [
             {
-              label: 'Blog',
-              to: '/blog',
-            },
-            {
-              label: 'YouTube',
-              href: 'https://www.youtube.com/@localgpt-gen',
+              label: 'GitHub',
+              href: 'https://github.com/localgpt-app/localgpt',
             },
             {
               label: 'X (Twitter)',
               href: 'https://x.com/localgpt',
             },
             {
-              label: 'GitHub',
-              href: 'https://github.com/localgpt-app/localgpt',
+              label: 'Blog',
+              to: '/blog',
+            },
+          ],
+        },
+        {
+          title: 'YouTube',
+          items: [
+            {
+              label: 'LocalGPT',
+              href: 'https://www.youtube.com/@localgpt-app',
+            },
+            {
+              label: 'Gen Gallery',
+              href: 'https://www.youtube.com/@localgpt-gen',
             },
           ],
         },

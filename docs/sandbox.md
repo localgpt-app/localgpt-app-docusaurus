@@ -181,14 +181,3 @@ The sandbox integrates into LocalGPT's tool execution pipeline. All entry points
 | `edit_file` | Yes — path-validated | Same restrictions as `write_file` |
 | `web_fetch` | No | Separate SSRF protection layer |
 | `memory_search` | No | Internal SQLite query, no shell |
-
-## Competitive Comparison
-
-| Product | Sandbox Approach | Default | Dependency | Limitation |
-|---------|-----------------|---------|------------|------------|
-| **LocalGPT** | Landlock + seccomp + Seatbelt | On | None (single binary) | Degrades gracefully |
-| Claude Code | Bubblewrap + seccomp + Seatbelt | On | bwrap binary | External binary dependency |
-| Codex CLI | Landlock + seccomp + Seatbelt | On | None (Rust) | Panics if Landlock missing |
-| OpenClaw | Docker containers | Off | Docker daemon + images | Heavy setup, off by default |
-| Cursor | Seatbelt (macOS only) | On | None | macOS only |
-| Aider | None | N/A | N/A | No sandboxing |
