@@ -1,40 +1,43 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
+import { themes as prismThemes } from "prism-react-renderer";
+import type { Config } from "@docusaurus/types";
+import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
-  title: 'LocalGPT',
-  tagline: 'A local AI assistant with persistent memory, autonomous tasks, semantic search, and explorable world generation. Single binary, no runtime dependencies.',
-  favicon: 'logo/localgpt-icon.png',
+  title: "LocalGPT",
+  tagline:
+    "A local AI assistant with persistent memory, autonomous tasks, semantic search, and explorable world generation. Single binary, no runtime dependencies.",
+  favicon: "logo/localgpt-icon.png",
 
-  url: 'https://localgpt.app',
-  baseUrl: '/',
+  //  url: 'https://localgpt.app',
+  baseUrl: "/localgpt-app-docusaurus/",
 
-  organizationName: 'localgpt-app',
-  projectName: 'localgpt-app',
+  organizationName: "localgpt-app",
+  projectName: "localgpt-app",
 
-  onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  onBrokenLinks: "throw",
+  onBrokenMarkdownLinks: "warn",
 
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: "en",
+    locales: ["en"],
   },
 
   presets: [
     [
-      'classic',
+      "classic",
       {
         docs: {
-          sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/localgpt-app/localgpt/tree/main/localgpt-app-docusaurus/',
+          sidebarPath: "./sidebars.ts",
+          editUrl:
+            "https://github.com/localgpt-app/localgpt/tree/main/localgpt-app-docusaurus/",
         },
         blog: {
           showReadingTime: true,
-          editUrl: 'https://github.com/localgpt-app/localgpt/tree/main/localgpt-app-docusaurus/',
+          editUrl:
+            "https://github.com/localgpt-app/localgpt/tree/main/localgpt-app-docusaurus/",
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: "./src/css/custom.css",
         },
       } satisfies Preset.Options,
     ],
@@ -42,123 +45,123 @@ const config: Config = {
 
   themeConfig: {
     colorMode: {
-      defaultMode: 'dark',
+      defaultMode: "dark",
       disableSwitch: true,
       respectPrefersColorScheme: false,
     },
-    image: 'logo/localgpt-logo-dark.svg',
+    image: "logo/localgpt-logo-dark.svg",
     navbar: {
-      title: 'LocalGPT',
+      title: "LocalGPT",
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
-          label: 'Docs',
+          type: "docSidebar",
+          sidebarId: "tutorialSidebar",
+          position: "left",
+          label: "Docs",
         },
-        {to: '/blog', label: 'Blog', position: 'left'},
+        { to: "/blog", label: "Blog", position: "left" },
         {
-          href: 'https://www.youtube.com/@localgpt-app',
-          position: 'right',
-          className: 'header-localgpt-app-link',
-          'aria-label': 'YouTube',
-        },
-        {
-          href: 'https://www.youtube.com/@localgpt-gen',
-          position: 'right',
-          className: 'header-localgpt-gen-link',
-          'aria-label': 'YouTube Gen Gallery',
+          href: "https://www.youtube.com/@localgpt-app",
+          position: "right",
+          className: "header-localgpt-app-link",
+          "aria-label": "YouTube",
         },
         {
-          href: 'https://x.com/localgpt',
-          position: 'right',
-          className: 'header-x-link',
-          'aria-label': 'X (Twitter)',
+          href: "https://www.youtube.com/@localgpt-gen",
+          position: "right",
+          className: "header-localgpt-gen-link",
+          "aria-label": "YouTube Gen Gallery",
         },
         {
-          href: 'https://github.com/localgpt-app/localgpt',
-          position: 'right',
-          className: 'header-github-link',
-          'aria-label': 'GitHub repository',
+          href: "https://x.com/localgpt",
+          position: "right",
+          className: "header-x-link",
+          "aria-label": "X (Twitter)",
+        },
+        {
+          href: "https://github.com/localgpt-app/localgpt",
+          position: "right",
+          className: "header-github-link",
+          "aria-label": "GitHub repository",
         },
       ],
     },
     footer: {
-      style: 'dark',
+      style: "dark",
       links: [
         {
-          title: 'Docs',
+          title: "Docs",
           items: [
             {
-              label: 'Getting Started',
-              to: '/docs/intro',
+              label: "Getting Started",
+              to: "/docs/intro",
             },
             {
-              label: 'CLI Commands',
-              to: '/docs/cli-commands',
+              label: "CLI Commands",
+              to: "/docs/cli-commands",
             },
             {
-              label: 'Configuration',
-              to: '/docs/configuration',
+              label: "Configuration",
+              to: "/docs/configuration",
             },
             {
-              label: 'HTTP API',
-              to: '/docs/http-api',
+              label: "HTTP API",
+              to: "/docs/http-api",
             },
           ],
         },
         {
-          title: 'Features',
+          title: "Features",
           items: [
             {
-              label: 'Gen',
-              to: '/docs/gen',
+              label: "Gen",
+              to: "/docs/gen",
             },
             {
-              label: 'Memory System',
-              to: '/docs/memory-system',
+              label: "Memory System",
+              to: "/docs/memory-system",
             },
             {
-              label: 'Heartbeat',
-              to: '/docs/heartbeat',
+              label: "Heartbeat",
+              to: "/docs/heartbeat",
             },
             {
-              label: 'Shell Sandbox',
-              to: '/docs/sandbox',
+              label: "Shell Sandbox",
+              to: "/docs/sandbox",
             },
             {
-              label: 'LocalGPT.md',
-              to: '/docs/localgpt',
+              label: "LocalGPT.md",
+              to: "/docs/localgpt",
             },
           ],
         },
         {
-          title: 'Community',
+          title: "Community",
           items: [
             {
-              label: 'GitHub',
-              href: 'https://github.com/localgpt-app/localgpt',
+              label: "GitHub",
+              href: "https://github.com/localgpt-app/localgpt",
             },
             {
-              label: 'X (Twitter)',
-              href: 'https://x.com/localgpt',
+              label: "X (Twitter)",
+              href: "https://x.com/localgpt",
             },
             {
-              label: 'Blog',
-              to: '/blog',
+              label: "Blog",
+              to: "/blog",
             },
           ],
         },
         {
-          title: 'YouTube',
+          title: "YouTube",
           items: [
             {
-              label: 'LocalGPT',
-              href: 'https://www.youtube.com/@localgpt-app',
+              label: "LocalGPT",
+              href: "https://www.youtube.com/@localgpt-app",
             },
             {
-              label: 'Gen Gallery',
-              href: 'https://www.youtube.com/@localgpt-gen',
+              label: "Gen Gallery",
+              href: "https://www.youtube.com/@localgpt-gen",
             },
           ],
         },
@@ -168,7 +171,7 @@ const config: Config = {
     prism: {
       theme: prismThemes.dracula,
       darkTheme: prismThemes.dracula,
-      additionalLanguages: ['bash', 'toml', 'rust', 'json'],
+      additionalLanguages: ["bash", "toml", "rust", "json"],
     },
   } satisfies Preset.ThemeConfig,
 };
