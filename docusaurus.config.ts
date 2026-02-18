@@ -8,8 +8,8 @@ const config: Config = {
     "A local AI assistant with persistent memory, autonomous tasks, semantic search, and explorable world generation. Single binary, no runtime dependencies.",
   favicon: "logo/localgpt-icon.png",
 
-  //  url: 'https://localgpt.app',
-  baseUrl: "/localgpt-app-docusaurus/",
+  url: process.env.URL || "https://localgpt-app.github.io",
+  baseUrl: process.env.BASE_URL || "/localgpt-app-docusaurus/",
 
   organizationName: "localgpt-app",
   projectName: "localgpt-app",
