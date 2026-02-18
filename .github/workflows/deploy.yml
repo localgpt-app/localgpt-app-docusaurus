@@ -33,7 +33,6 @@ jobs:
       - name: Build
         env:
           URL: https://${{ github.repository_owner }}.github.io
-          BASE_URL: /${{ github.event.repository.name }}/
         run: npm run build
 
       - name: Upload artifact
