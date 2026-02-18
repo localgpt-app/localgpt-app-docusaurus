@@ -92,8 +92,8 @@ localgpt md sign
 # View security audit log
 localgpt md audit
 
-# Launch world generation
-localgpt gen "create a solar system with planets"
+# Launch world generation (separate binary)
+localgpt-gen "create a solar system with planets"
 
 # Test web search provider
 localgpt search test

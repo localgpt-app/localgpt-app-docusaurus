@@ -70,7 +70,7 @@ function HomepageHeader() {
               materials, lighting, and camera.
               Powered by{' '}
               <a href="https://bevyengine.org/" target="_blank" rel="noopener noreferrer">Bevy</a>,
-              built into the same single binary.
+              shipped as a standalone binary.
             </p>
             <Link
               className="button button--primary button--md"
