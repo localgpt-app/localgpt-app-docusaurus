@@ -20,8 +20,14 @@ If you have the [Claude CLI](https://claude.ai/code) installed and authenticated
 localgpt chat
 ```
 
-### Option B: API Keys
+### Option B: API Keys & OAuth
 
+**OAuth (Google Gemini):**
+```bash
+localgpt auth gemini
+```
+
+**API Keys:**
 ```bash
 # For OpenAI
 export OPENAI_API_KEY="sk-..."

@@ -331,6 +331,31 @@ default_model = "glm/glm-4.7"  # or alias: glm
 api_key = "${GLM_API_KEY}"
 ```
 
+### Gemini (Google)
+
+LocalGPT supports Gemini via OAuth (recommended) or legacy API keys.
+
+**OAuth Setup (Recommended):**
+
+```bash
+localgpt auth gemini
+```
+
+Follow the browser prompts to authenticate. This automatically configures your credentials in `~/.config/localgpt/config.toml`.
+
+Then use:
+```toml
+[agent]
+default_model = "gemini/gemini-2.0-flash"  # or gemini-1.5-pro, etc.
+```
+
+**Legacy API Key:**
+
+```toml
+[providers.gemini_oauth]
+# Not yet supported via simple API key config, use OAuth flow above.
+```
+
 ### Local OpenAI-Compatible Server (LM Studio, llamafile, etc.)
 
 If you run a local server that speaks the OpenAI API (e.g., LM Studio, llamafile, vLLM), point LocalGPT at it with an `openai/*` model ID:

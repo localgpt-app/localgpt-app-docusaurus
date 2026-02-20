@@ -18,6 +18,7 @@ Commands:
   daemon    Manage the background daemon
   memory    Memory management operations
   search    Test web search provider
+  auth      Authenticate with providers
   config    Configuration management
   md        Manage LocalGPT.md standing instructions
   sandbox   Shell sandbox diagnostics
@@ -50,6 +51,7 @@ Options:
 | [`daemon`](/docs/cli-daemon) | Start/stop/status of the background daemon |
 | [`memory`](/docs/cli-memory) | Search, reindex, and manage memory |
 | `search` | Test web search provider configuration |
+| `auth` | Authenticate with providers (Gemini, etc.) |
 | `config` | Init, show, get, and set configuration values |
 | [`md`](/docs/localgpt#quick-reference) | Sign, verify, and audit LocalGPT.md |
 | [`sandbox`](/docs/sandbox#cli-commands) | Inspect sandbox capabilities and run tests |
@@ -97,6 +99,9 @@ localgpt-gen "create a solar system with planets"
 
 # Test web search provider
 localgpt search test
+
+# Authenticate with Google Gemini
+localgpt auth gemini
 
 # Show resolved directory paths
 localgpt paths
